@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Glow Icon Page</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background: #000;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            overflow: hidden;
+        }
+
+        .wrapper {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            gap: 140px;
+        }
+
+        .icon-wrapper {
+            position: relative;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            width: 383.36px;
+        }
+
+        .icon-bg {
+            position: absolute;
+            filter: blur(80px);
+            opacity: 0.7;
+            z-index: 0;
+            width: inherit;
+            transform: scale(1.5);
+            animation: icon-animate 15s linear infinite;
+        }
+
+        .icon-main {
+            position: relative;
+            z-index: 1;
+            width: inherit;
+        }
+
+        .marquee-box {
+            width: 704px;
+            border-left: 2px solid white;
+            border-right: 2px solid white;
+
+            color: white;
+            padding: 25px 0;
+            overflow: hidden;
+            position: relative;
+
+            font-size: 24px;
+            white-space: nowrap;
+            font-family: Arial, sans-serif;
+        }
+
+        .marquee-background {
+            background-color: rgba(255, 255, 255, 0.092);
+            filter: blur(20px);
+            position: absolute;
+            width: 100%;
+            height: 100%;
+        }
+
+        .marquee-content {
+            display: inline-block;
+            padding-left: 100%;
+            animation: marquee 60s linear infinite;
+        }
+
+        @keyframes marquee {
+            from {
+                transform: translateX(0);
+            }
+
+            to {
+                transform: translateX(-100%);
+            }
+        }
+
+        @keyframes icon-animate {
+            0% {
+                transform: scale(1.8) rotate(0deg);
+            }
+
+            50% {
+                transform: scale(1.2) rotate(180deg);
+            }
+
+            100% {
+                transform: scale(1.9) rotate(360deg);
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="wrapper">
+        <div class="icon-wrapper">
+
+            <div class="icon-bg">
+                <img src="school.svg" alt="">
+            </div>
+
+            <div class="icon-main">
+                <img src="school.svg" alt="">
+            </div>
+        </div>
+
+        <div class="marquee-box">
+            <div class="marquee-background"></div>
+            <div class="marquee-content">
+            </div>
+        </div>
+    </div>
+
+    <script>
+        const texts = [
+            "Школа это - бесценный опыт",
+            "Школа это - Причина не идти на свадьбу",
+            "Школа это - возможность",
+            "Школа это - бессонные ночи, с кодом и друзьями",
+            "Школа это - Новая жизнь",
+            "Школа это - Новые знакомства, постоянное общение (пир ту пир!!!), штрудирование материала и параллельное обсуждение приколов в тиктоке, ивенты турнички и \"пробуем татарскую кухню\"",
+            "Школа это - Возможность узнать о себе что то новое",
+            "Школа это - Возможность найти новые знакомства, общение с интересными людьми, а так же найти работу",
+            "Школа это - ... отэ янем ялд 12 loohcS",
+            "Школа это - School 21 для меня это не то что, что можно описать одним словом. Это и испытание, начиная от подготовки к этой школе так и в процессе. Это и новый опыт, такой как сам принцип обучения и его темп. И новые приятные знакомства, постоянное общение с ранее неизвестными тебе людьми. Осознание кусочка чужого мировоззрения, что позволяет посмотреть на мир под другим углом и находить иные решения в том числе для учебных задач. И в целом приятное времяпровождение в теплой и дружной атмосфере.",
+            "Школа это - Прокачка софтов и новые крутые знакомства",
+            "Школа это - Это совсем другая, но всё ещё твоя жизнь",
+            "Школа это - как глоток свежего воздуха!",
+            "Школа это - камнем по голове",
+            "Школа это - Неиссякаемая мотивация среди единомышленников",
+            "Школа это - Классное коммьюнити и новые возможности!",
+            "Школа это - Это большое сообщество единомышленников и возможность ворваться в айти",
+            "Школа это - Опыт"
+        ];
+
+        const container = document.querySelector('.marquee-content');
+        const p = document.createElement('p');
+
+        container.innerHTML = '';
+        let textsContainer = '';
+        texts.forEach(text => {
+            textsContainer = textsContainer + text + "ㅤㅤ";
+        });
+        p.textContent = textsContainer;
+
+        const animationDuration = texts.length * 8;
+        container.style.animationDuration = `${animationDuration}s`;
+
+        container.appendChild(p);
+    </script>
+</body>
+
+</html>
