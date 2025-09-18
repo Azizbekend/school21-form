@@ -37,11 +37,6 @@
 
         body {
             background: #000;
-            height: 100vh;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            flex-direction: column;
             overflow: hidden;
         }
 
@@ -51,6 +46,7 @@
             justify-content: center;
             align-items: center;
             gap: 140px;
+            min-height: 100vh;
         }
 
         .icon-wrapper {
@@ -69,8 +65,14 @@
             width: inherit;
             transform: scale(1.5);
             animation: icon-animate 20s linear infinite alternate;
-
         }
+
+        .icon-bg img,
+        .icon-main img {
+            width: 100%;
+            object-fit: contain;
+        }
+
 
         .icon-main {
             position: relative;
@@ -129,6 +131,28 @@
 
             100% {
                 transform: scale(1.9) rotate(360deg);
+            }
+        }
+
+        @media (max-width: 991.98px) {
+            .wrapper {
+                gap: 60px;
+                padding: 0 20px;
+                overflow: hidden;
+            }
+
+            .icon-wrapper {
+                width: 70%;
+            }
+
+            .marquee-box {
+                width: 250px;
+                padding: 5px 0;
+                font-size: 16px;
+            }
+
+            .icon-bg {
+                filter: blur(40px);
             }
         }
     </style>
